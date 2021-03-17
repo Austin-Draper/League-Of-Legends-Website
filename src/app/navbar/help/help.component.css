@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+  }/*this is already in home.component.css.... try deleting this to see if still working*/
+
+  .helpmainpadding{
+    margin-top: 10px;
+    padding-left: 10%;
+    padding-right: 25%;
+  }
+
+  .helpbackground{
+      background: lightgray;
+      padding-left: 10%;
+      padding-right: 10%;
+      padding-top: 2px;
+      border: 2px solid #555;
+      text-indent: 25px;
+  }

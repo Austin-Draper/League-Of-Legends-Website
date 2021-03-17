@@ -1,0 +1,13 @@
+<mat-card class="home-card">
+    <mat-card-title class="home-card-title">Create A Tag</mat-card-title>
+    <mat-card-content class="home-card-content">
+        <form [formGroup]="data.service.rosterCreateTagFormModel" (submit)="data.rostercomponent.onCreateSubmit(data.service, data.toastr, dialogRef, data._userDetails, data.tags)">
+        <mat-form-field appearance="standard">
+            <input matInput placeholder="Enter Tag" formControlName="Tag">
+        </mat-form-field>
+        <mat-dialog-actions class="submit-create-tag">
+            <button mat-raised-button type="submit" color="primary" class="set-button">Create Tag</button>
+          </mat-dialog-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

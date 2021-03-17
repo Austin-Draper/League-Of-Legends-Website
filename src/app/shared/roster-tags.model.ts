@@ -1,0 +1,33 @@
+export class RosterTags {
+    Email: string;
+    Tag1: string;
+    Tag2: string;
+    Tag3: string;
+    Tag4: string;
+    Tag5: string;
+    Tag6: string;
+    Tag7: string;
+    Tag8: string;
+    Tag9: string;
+    Tag10: string;
+    Tag11: string;
+    Tag12: string;
+    Tag13: string;
+    Tag14: string;
+    Tag15: string;
+    Tag16: string;
+    Tag17: string;
+    Tag18: string;
+    Tag19: string;
+    Tag20: string;
+    Tag21: string;
+    Tag22: string;
+    Tag23: string;
+    Tag24: string;
+    Tag25: string;
+    Tag26: string;
+    Tag27: string;
+    Tag28: string;
+    Tag29: string;
+    Tag30: string;
+}

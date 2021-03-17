@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styles: []
+  styles: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
 
@@ -17,13 +17,18 @@ export class RegistrationComponent implements OnInit {
 
   ///res = response
   onSubmit(){
+    var holder = this.service.formModel.value.Email;
     this.service.register().subscribe(
       (res:any) =>{
-        if(res.succeeded){
+        if(res.Succeeded){
+          console.log('register succeeded');
+          //this.service.rosterInitialCreateTag(holder);
           this.service.formModel.reset();
           this.toastr.success('New user created!', 'Registration successful.');
         }
         else{
+          console.log('register failed');
+          console.log(res);
           res.errors.forEach(element => {
             switch(element.code){
               case 'DuplicateUserName':
@@ -41,7 +46,18 @@ export class RegistrationComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
+  this.service.rosterInitialCreateTag(holder).subscribe(
+    (res:any) =>{
+      if(res.Succeeded){
+        console.log('Initial create tag succeeded');
+
+      }
+      else{
+        console.log('Initial create tag failed');
+      }
+    }
+  )
   }
 
 }

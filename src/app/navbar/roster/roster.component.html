@@ -1,0 +1,61 @@
+
+  <body>
+
+  <div class="sidebar navbar-dark">
+    <a style="color:red;font-size:24px"><u><b>SideNav</b></u></a>
+      <button mat-button [matMenuTriggerFor]="filter" (click)="rosterTagList()">Filter</button>
+      <mat-menu #filter="matMenu">
+        <div *ngFor="let tags of _tempTagsList; let i = index;">
+          <mat-slide-toggle (click)="$event.stopPropagation();" (change)="changed(checked[i], i)" [(ngModel)]="checked[i]">
+            {{tags}}
+          </mat-slide-toggle>
+          <!-- uncomment if testing needs to be done on the menu or toggles
+            <mat-slide-toggle (click)="$event.stopPropagation();" (change)="changed(checked[i], i)" [(ngModel)]="checked[i]">
+            {{tags}} {{checked[i]}} {{i}} 
+          </mat-slide-toggle>
+        -->
+        </div>
+
+    </mat-menu>
+    <button (click)="openCreateDialog()">Add Tag</button>
+    <button (click)="openDeleteDialog()">Remove Tag</button>
+    <button (click)="openTagsDialog()">List Tags</button>
+  </div>
+
+
+
+<div class="rostertest">
+
+  <div class="container-fluid no-padding style=border:1px solid #cecece;">
+    <div class="row justify-content-left" *ngIf="initialChecked">
+      <div class="card text-center m-2 cardhover" style="width:18.6rem" *ngFor="let n of rosterList(); 
+      let i = index;" (click)="openDialog(n.rosterChampion, n.rosterPicture, n.rosterTags, n.rosterArray, n.rosterLane, n.rosterPMid)">
+          <img src={{n.rosterPicture}} class="card text-center m-1">
+        <div class="card-footer">
+          {{n.rosterChampion}}
+        </div>
+        <div class="card-footer text-muted">
+          {{n.rosterTags}}
+        </div>
+       </div>
+    </div>
+
+       <div class="row justify-content-left" *ngIf="!initialChecked">
+        <div class="card text-center m-2 cardhover" style="width:18.6rem" *ngFor="let n of _filteredChampList; 
+        let i = index;" (click)="openDialog(n.rosterChampion, n.rosterPicture, n.rosterTags, n.rosterArray, n.rosterLane, n.rosterPMid)">
+            <img src={{n.rosterPicture}} class="card text-center m-1">
+          <div class="card-footer">
+            {{n.rosterChampion}}
+          </div>
+          <div class="card-footer text-muted">
+            {{n.rosterTags}}
+          </div>
+         </div>
+
+  </div>
+
+</div>
+
+</div>
+
+</body>

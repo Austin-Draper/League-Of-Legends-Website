@@ -1,0 +1,98 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /*overflow-x: hidden; /* hides the scroll bars */
+  /*overflow-y: hidden;*/
+}
+
+/* use viewport-relative units to cover page fully */
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* include border and padding in element width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* full-sized  container that fills up the page */
+.test {
+  height: 100%;
+  width: 100%;
+
+  /* example padding, font-size, background, etc */
+  padding: 10px;
+  font-size: 20px;
+}
+
+.cardhover:hover{
+  cursor: pointer;
+}
+
+.rostertest {
+  height: 100%;
+  width: 99%;
+
+  /* example padding, font-size, background, etc */
+  padding: 10px;
+  font-size: 20px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 1;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+.sidebar button {
+  background: none!important;
+  border: none;
+  padding: 6px 8px 6px 16px;
+  display:block;
+  font-size: 18px;
+  font-family: arial, sans-serif;
+  color: #818181;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  color: #f1f1f1;
+}
+
+.rosterChip {
+  width: 500px;
+  margin: auto;
+  border: 3px solid #73AD21;
+}
+
+.example-container {
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid #555;
+}

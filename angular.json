@@ -24,7 +24,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "src/app/home/home.component.css",
+              "src/app/user/login/login.component.css",
+              "src/app/navbar/roster/roster.component.css",
+              "src/app/navbar/account/account.component.css",
+              "src/app/navbar/help/help.component.css"
             ],
             "scripts": []
           },

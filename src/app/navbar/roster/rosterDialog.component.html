@@ -1,0 +1,71 @@
+<mat-card class="home-card">
+    <mat-card-title class="home-card-title">{{data._champion}}</mat-card-title>
+    <mat-card-content class="home-card-content">
+      <img mat-card-image
+        src="{{data._picture}}"
+        alt="Photo of a Champion">
+      <div>
+        <div>
+  <!-- data.service.rosterPost() works... get data.HomeComponent.onSubmit() to work as well-->
+          <form [formGroup]="data.service.homeFormModel" (submit)="data.rostercomponent.onSubmit(data.service, data.rostercomponent, data.toastr, dialogRef, data._userDetails, data._champion, data._rostPMid, data._rostArray, data._rostLane)">
+            <!--<form [formGroup]="data.service.homeFormModel" (submit)="data.service.rosterPost()">-->
+          <mat-form-field appearance="fill">
+            <mat-label>Select Lane</mat-label>
+            <mat-select formControlName="Lane" [(ngModel)]="data._rostLane">
+              <mat-option value="Top">Top</mat-option>
+              <mat-option value="Middle">Middle</mat-option>
+              <mat-option value="Jungle">Jungle</mat-option>
+              <mat-option value="Bottom">Bottom</mat-option>
+              <mat-option value="Support">Support</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+           <mat-label>Add Tag</mat-label>
+           <mat-select formControlName="addTagList" multiple>
+            
+            <div *ngFor="let tag of data._rosttags">
+              <mat-option *ngIf="tag!=null" [value]="tag">{{tag}}</mat-option>
+             </div>
+
+           </mat-select>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Remove Tag</mat-label>
+
+            <mat-select formControlName="removeTagList" multiple>
+              <div *ngFor="let tag of data._rostArray">
+                <mat-option *ngIf="tag!=null" [value]="tag">{{tag}}</mat-option>
+               </div>
+            </mat-select>
+          </mat-form-field>
+       
+  
+  
+  
+  
+  
+  
+  
+    <!--Add to roster button bottom right OR put it just below the Remove tag option with some extra top padding to lower it where I want it to be-->
+    <mat-dialog-actions class="submit-roster">
+      <button mat-raised-button type="submit" color="primary" class="set-button">Add To Roster</button>
+    </mat-dialog-actions>
+  
+  </form>
+  </div>
+  </div>
+  </mat-card-content>
+  
+  
+    <!--display tags in a width equal to picture width-->
+    <div class="tags-display">
+      <mat-chip-list aria-label="Fish selection">
+        <div *ngFor="let tag of data._rostArray">
+          <mat-chip *ngIf="tag!=null" [value]="tag">{{tag}}</mat-chip>
+         </div>
+      </mat-chip-list>
+    </div>
+  
+  </mat-card>

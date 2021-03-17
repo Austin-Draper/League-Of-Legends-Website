@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+  }/*this is already in home.component.css.... try deleting this to see if still working*/
+
+  .accountbackground{
+      background: lightgray;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      border: 2px solid #555;
+  }
+
+  .accountmainpadding{
+    height:auto;
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 10%;
+    padding-right: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    resize: both;
+  }

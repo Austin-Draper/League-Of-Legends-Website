@@ -1,12 +1,42 @@
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand text-white">JWT Auth System</a>
-  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+<nav class="navbar navbar-dark bg-dark justify-content-left">
+  <a class="navbar-brand text-white" href="/home">LOL Champion Select Assistant</a>
+  <!-- Set everything in this div to be dead center of nav bar -->
+  <div class="btn-group" role="group" aria-label="First group">
+    <button class="btn btn-secondary my-2 my-sm-0" (click)="onRoster()">Roster</button>
+    <button class="btn btn-secondary my-2 my-sm-0" (click)="onAccount()">Account</button>
+    <!-- Help button goes to a page explaining how to use the website -->
+    <button class="btn btn-secondary my-2 my-sm-0" (click)="onHelp()">Help</button>
+  </div>
+
+  <div>
+  <span class="navbar-text">
+    <!-- Replace fullName with nickname/website name in the future -->
+    Welcome: {{userDetails.FullName}} 
+  </span>
+  <button class="btn btn-danger m-3 my-2 my-sm-0" (click)="onLogout()">Logout</button>
+  </div>
+
 </nav>
 
-<div class="card m-5" style="width:18rem" *ngIf="userDetails">
-  <ul class="list-group">
-    <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>
-   <li class="list-group-item"><strong>FullName : </strong>{{userDetails.fullName}}</li>
-    <li class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</li>
-  </ul>
+
+<body>
+<div class="test">
+
+<div class="container-fluid no-padding style=border:1px solid #cecece;">
+  <div class="row justify-content-left">
+    <div class="card text-center m-2 cardhover" style="width:18.6rem" *ngFor="let n of champList(); 
+    let i = index;" (click)="openDialog(n._champion,n._picture,n._tags,n._Assassin,n._Fighter,n._Mage,n._Marksman,n._Support,n._Tank)">
+      <img src={{n._picture}} class="card text-center m-1">
+      <div class="card-footer">
+        {{n._champion}}
+      </div>
+      <div class="card-footer text-muted">
+        {{n._tags}}
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- end of .test css div-->
+</div>
+</body>

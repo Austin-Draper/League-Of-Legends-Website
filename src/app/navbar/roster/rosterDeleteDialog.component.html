@@ -1,0 +1,44 @@
+<mat-card class="home-card">
+    <mat-card-title class="home-card-title">Delete A Tag</mat-card-title>
+    <mat-card-content class="home-card-content">
+        <form [formGroup]="data.service.rosterDeleteTagFormModel" (submit)="data.rostercomponent.onDeleteSubmit(data.service, data._userDetails, data.toastr, dialogRef)">
+        <mat-form-field appearance="standard">
+            <mat-select placeholder="Select Tag to Delete" formControlName="Tag">
+                <mat-option *ngIf="data.tags.Tag1!=null" value={{data.tags.Tag1}}>{{data.tags.Tag1}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag2!=null" value={{data.tags.Tag2}}>{{data.tags.Tag2}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag3!=null" value={{data.tags.Tag3}}>{{data.tags.Tag3}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag4!=null" value={{data.tags.Tag4}}>{{data.tags.Tag4}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag5!=null" value={{data.tags.Tag5}}>{{data.tags.Tag5}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag6!=null" value={{data.tags.Tag6}}>{{data.tags.Tag6}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag7!=null" value={{data.tags.Tag7}}>{{data.tags.Tag7}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag8!=null" value={{data.tags.Tag8}}>{{data.tags.Tag8}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag9!=null" value={{data.tags.Tag9}}>{{data.tags.Tag9}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag10!=null" value={{data.tags.Tag10}}>{{data.tags.Tag10}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag11!=null" value={{data.tags.Tag11}}>{{data.tags.Tag11}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag12!=null" value={{data.tags.Tag12}}>{{data.tags.Tag12}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag13!=null" value={{data.tags.Tag13}}>{{data.tags.Tag13}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag14!=null" value={{data.tags.Tag14}}>{{data.tags.Tag14}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag15!=null" value={{data.tags.Tag15}}>{{data.tags.Tag15}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag16!=null" value={{data.tags.Tag16}}>{{data.tags.Tag16}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag17!=null" value={{data.tags.Tag17}}>{{data.tags.Tag17}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag18!=null" value={{data.tags.Tag18}}>{{data.tags.Tag18}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag19!=null" value={{data.tags.Tag19}}>{{data.tags.Tag19}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag20!=null" value={{data.tags.Tag20}}>{{data.tags.Tag20}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag21!=null" value={{data.tags.Tag21}}>{{data.tags.Tag21}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag22!=null" value={{data.tags.Tag22}}>{{data.tags.Tag22}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag23!=null" value={{data.tags.Tag23}}>{{data.tags.Tag23}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag24!=null" value={{data.tags.Tag24}}>{{data.tags.Tag24}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag25!=null" value={{data.tags.Tag25}}>{{data.tags.Tag25}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag26!=null" value={{data.tags.Tag26}}>{{data.tags.Tag26}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag27!=null" value={{data.tags.Tag27}}>{{data.tags.Tag27}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag28!=null" value={{data.tags.Tag28}}>{{data.tags.Tag28}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag29!=null" value={{data.tags.Tag29}}>{{data.tags.Tag29}}</mat-option>
+                <mat-option *ngIf="data.tags.Tag30!=null" value={{data.tags.Tag30}}>{{data.tags.Tag30}}</mat-option>
+              </mat-select>
+        </mat-form-field>
+        <mat-dialog-actions class="submit-create-tag">
+            <button mat-raised-button type="submit" color="primary" class="set-button">Delete Tag</button>
+          </mat-dialog-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

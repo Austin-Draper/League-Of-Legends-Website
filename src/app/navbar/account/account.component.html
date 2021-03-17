@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <main class="accountmainpadding">
+      <div class="accountbackground">
+        <p>
+          Username: {{userDetails.UserName}} 
+        </p>
+        <p></p>
+        <p>
+          Email: {{userDetails.Email}}
+        </p>
+
+        <!--remember that after all user data is deleted, we can call "onLogout" to force user to login screen-->
+        <button class="btn btn-primary m-3 my-2 my-sm-0" (click)="onUnsubscribe()">Unsubscribe</button>
+      </div>
+    </main>
+  </body>
+</html>

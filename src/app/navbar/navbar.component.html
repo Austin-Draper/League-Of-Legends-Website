@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand text-white" href="/home">LOL Champion Select Assistant</a>
+  <div class="btn-group justify-content-center" role="group" aria-label="First group">
+    <button class="btn btn-secondary my-2 my-sm-0" (click)="onRoster()">Roster</button>
+    <button class="btn btn-secondary my-2 my-sm-0" (click)="onAccount()">Account</button>
+    <!-- Help button goes to a page explaining how to use the website -->
+    <button class="btn btn-secondary my-2 my-sm-0" (click)="onHelp()">Help</button>
+  </div>
+  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+</nav>
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

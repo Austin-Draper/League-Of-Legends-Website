@@ -1,0 +1,119 @@
+<!-- 
+1. Display picture of champion and name of champion somewhere (but send picture, champ, and default tags here)
+2. If no tags are selected upon completion, then save with default tags
+3. Create a form that contains: a) Choose lane (dropdown list)
+                                b) Edit lane (dropdown list)
+                                c) Add tag (dropdown of all default and custom tags)
+                                d) Remove tag (remove tag from specific champion)
+                                e) Create tag (create a new custom tag to permanently add to "Add tag" list)
+                                f) Delete tag (delete any tag whether custom or default
+                                g) Add to roster (your submit button to upload to database)
+                                h) Active tags: (displays a list of currently active tags for specified champion)
+                                i) Save (specific for roster page to save all changes made... replaces option g "Add to roster")
+3a) HomePage: a, c, g, h
+3b) RosterPage: b, c, d, h, i
+3c) RosterPage Not part of dialog: e, f (make these just two buttons on the page below navbar)
+3d) RosterPage Not part of dialog: sort by specific tag 
+                               
+extra: in roster page, when a picture is clicked bring up champ picture, name, and ask if 
+you're sure you want to remove champion from roster (yes or no)
+...Need to decide what goes in HomePage and what goes in RosterPage
+...I think HomePage is for adding while RosterPage is for editing and deleting
+...Need to decide where creation and deletion of tags belongs
+
+
+
+<form [formGroup]="service.homeFormModel" autocomplete="off" (submit)="onSubmit()"></form>
+-->
+
+<mat-card class="home-card">
+  <mat-card-title class="home-card-title">{{data._champion}}</mat-card-title>
+  <mat-card-content class="home-card-content">
+    <img mat-card-image
+      src="{{data._picture}}"
+      alt="Photo of a Champion">
+    <div>
+      <div>
+<!-- data.service.rosterPost() works... get data.HomeComponent.onSubmit() to work as well-->
+        <form [formGroup]="data.service.homeFormModel" (submit)="data.homecomponent.onSubmit(data.service, data.homecomponent, data.toastr, dialogRef, data._userDetails, data._champion, data._removeList)">
+          <!--<form [formGroup]="data.service.homeFormModel" (submit)="data.service.rosterPost()">-->
+        <mat-form-field appearance="fill">
+          <mat-label>Select Lane</mat-label>
+          <mat-select formControlName="Lane">
+            <mat-option value="Top">Top</mat-option>
+            <mat-option value="Middle">Middle</mat-option>
+            <mat-option value="Jungle">Jungle</mat-option>
+            <mat-option value="Bottom">Bottom</mat-option>
+            <mat-option value="Support">Support</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+         <mat-label>Add Tag</mat-label>
+         <mat-select formControlName="addTagList" multiple>
+           <!-- Options are static for now... will be dynamic once I have built users list of tags
+                which starts with these default tags in it.
+                TODO: List users tags in add ONLY not displaying tags already added to champion
+                TODO: add a for loop that loops through every item in data.rosttags
+          -->
+          <mat-option  *ngIf="!data._assassin"  value="Assassin">Assassin</mat-option>
+           <mat-option  *ngIf="!data._fighter"  value="Fighter">Fighter</mat-option>
+           <mat-option  *ngIf="!data._mage"  value="Mage">Mage</mat-option>
+           <mat-option  *ngIf="!data._marksman"  value="Marksman">Marksman</mat-option>
+           <mat-option  *ngIf="!data._support"  value="Support">Support</mat-option>
+           <mat-option  *ngIf="!data._tank"  value="Tank">Tank</mat-option>
+           <mat-option  *ngIf="data._rosttags.Tag5" value="data._rosttags.Tag5">{{data._rosttags.Tag5}}</mat-option>
+
+           <div *ngFor="let tag of data._rosttags">
+           <mat-option *ngIf="tag!=null" [value]="tag">{{tag}}</mat-option>
+          </div>
+
+         </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Remove Tag</mat-label>
+          <!-- remove static 6 with dynamic list... send whole list through button press so we can check 
+          each selected value vs each value in dynamic list... every match gets removed from dynamic list...
+          the rest take up tags 1, 2, 3... etc... then the remaining tags get used up from addTagList -->
+          <mat-select formControlName="removeTagList" multiple>
+           <mat-option  *ngIf="data._assassin"  value="Assassin">{{data._assassin}}</mat-option>
+           <mat-option  *ngIf="data._fighter"  value="Fighter">{{data._fighter}}</mat-option>
+           <mat-option  *ngIf="data._mage"  value="Mage">{{data._mage}}</mat-option>
+           <mat-option  *ngIf="data._marksman"  value="Marksman">{{data._marksman}}</mat-option>
+           <mat-option  *ngIf="data._support"  value="Support">{{data._support}}</mat-option>
+           <mat-option  *ngIf="data._tank"  value="Tank">{{data._tank}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+     
+
+
+
+
+
+
+
+  <!--Add to roster button bottom right OR put it just below the Remove tag option with some extra top padding to lower it where I want it to be-->
+  <mat-dialog-actions class="submit-roster">
+    <button mat-raised-button type="submit" color="primary" class="set-button">Add To Roster</button>
+  </mat-dialog-actions>
+
+</form>
+</div>
+</div>
+</mat-card-content>
+
+
+  <!--display tags in a width equal to picture width-->
+  <div class="tags-display">
+    <mat-chip-list aria-label="Fish selection">
+      <mat-chip  *ngIf="data._assassin">{{data._assassin}}</mat-chip>
+      <mat-chip  *ngIf="data._fighter">{{data._fighter}}</mat-chip>
+      <mat-chip  *ngIf="data._mage">{{data._mage}}</mat-chip>
+      <mat-chip  *ngIf="data._marksman">{{data._marksman}}</mat-chip>
+      <mat-chip  *ngIf="data._support">{{data._support}}</mat-chip>
+      <mat-chip  *ngIf="data._tank">{{data._tank}}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+</mat-card>
